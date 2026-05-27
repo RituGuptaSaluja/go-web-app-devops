@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: ritu77079/go-web-app
   pullPolicy: IfNotPresent
-  tag: "v1"
+  tag: "26519824854"
 
 service:
   type: ClusterIP
