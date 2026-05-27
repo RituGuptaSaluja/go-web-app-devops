@@ -1,0 +1,37 @@
+# Default values for go-web-app-chart.
+
+replicaCount: 1
+
+image:
+  repository: ritu77079/go-web-app
+  pullPolicy: IfNotPresent
+  tag: "v1"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+  hosts:
+    - host: go-web-app.local
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
